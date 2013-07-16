@@ -1,0 +1,14 @@
+
+<div class="footer">
+    <a href="http://validator.w3.org/check/referer">
+    <img src="/acijsf/icons/valid-xhtml1088x31.gif"
+    alt="Valid XHTML 1.0" height="31" width="88" /></a>
+    <a href="http://jigsaw.w3.org/css-validator/validator.html.en">
+    <img src="/acijsf/icons/valid-css88x31.gif"
+    alt="Valid CSS" height="31" width="88" /></a>
+</div>
+
+<p><em>Basato su <strong>Java Sever Faces</strong> e <strong>Hibernate</strong></em></p>
+
+</body>
+</html>

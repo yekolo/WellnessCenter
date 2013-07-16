@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
+              version="1.2">
+    
+    <application>
+        <message-bundle>messaggiErrore</message-bundle>
+    </application>
+    
+    <!--
+    <managed-bean>
+        <managed-bean-name>backingBean</managed-bean-name>
+        <managed-bean-class>it.unibas.progetto.controllo.BackingBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>modello</property-name>
+            <value>#{modello}</value>
+        </managed-property>
+        <managed-property>
+            <property-name>vista</property-name>
+            <value>#{vistaLogin}</value>
+        </managed-property>
+    </managed-bean>
+    -->    
+    
+     <!-- MODELLO --> 
+    <managed-bean>
+        <managed-bean-name>modello</managed-bean-name>
+        <managed-bean-class>it.unibas.centrobenessere.modello.Modello</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+        <!-- PERSISTENZA --> 
+    <managed-bean>
+        <managed-bean-name>daoUtente</managed-bean-name>
+        <managed-bean-class>it.unibas.centrobenessere.persistenza.hibernate.DAOUtente</managed-bean-class>
+        <managed-bean-scope>application</managed-bean-scope>
+    </managed-bean>
+     
+    <managed-bean>
+        <managed-bean-name>daoPrenotazione</managed-bean-name>
+        <managed-bean-class>it.unibas.centrobenessere.persistenza.hibernate.DAOPrenotazione</managed-bean-class>
+        <managed-bean-scope>application</managed-bean-scope>
+    </managed-bean>
+     
+    <managed-bean>
+        <managed-bean-name>daoPrestazione</managed-bean-name>
+        <managed-bean-class>it.unibas.centrobenessere.persistenza.hibernate.DAOPrestazione</managed-bean-class>
+        <managed-bean-scope>application</managed-bean-scope>
+    </managed-bean>
+            <!-- VISTA -->
+            
+    <managed-bean>
+        <managed-bean-name>vistaIniziale</managed-bean-name>
+        <managed-bean-class>it.unibas.centrobenessere.vista.VistaIniziale</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>vistaPrestazione</managed-bean-name>
+        <managed-bean-class>it.unibas.centrobenessere.vista.VistaPrestazione</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>vistaPrenotazione</managed-bean-name>
+        <managed-bean-class>it.unibas.centrobenessere.vista.VistaPrenotazione</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+        <!-- CONTROLLO -->
+    <managed-bean>
+        <managed-bean-name>controlloIniziale</managed-bean-name>
+        <managed-bean-class>it.unibas.centrobenessere.controllo.ControlloIniziale</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>modello</property-name>
+            <value>#{modello}</value>
+        </managed-property>
+        <managed-property>
+            <property-name>vistaIniziale</property-name>
+            <value>#{vistaIniziale}</value>
+        </managed-property>
+        <managed-property>
+            <property-name>vistaPrestazione</property-name>
+            <value>#{vistaPrestazione}</value>
+        </managed-property>
+        <managed-property>
+            <property-name>daoUtente</property-name>
+            <value>#{daoUtente}</value>
+        </managed-property>
+        <managed-property>
+            <property-name>daoPrestazione</property-name>
+            <value>#{daoPrestazione}</value>
+        </managed-property>
+    </managed-bean>
+    
+    
+    <managed-bean>
+        <managed-bean-name>controlloPrestazione</managed-bean-name>
+        <managed-bean-class>it.unibas.centrobenessere.controllo.ControlloPrestazione</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>modello</property-name>
+            <value>#{modello}</value>
+        </managed-property>
+        <managed-property>
+            <property-name>daoUtente</property-name>
+            <value>#{daoUtente}</value>
+        </managed-property>
+        <managed-property>
+            <property-name>vistaPrestazione</property-name>
+            <value>#{vistaPrestazione}</value>
+        </managed-property>
+        <managed-property>
+            <property-name>vistaPrenotazione</property-name>
+            <value>#{vistaPrenotazione}</value>
+        </managed-property>
+        <managed-property>
+            <property-name>daoPrenotazione</property-name>
+            <value>#{daoPrenotazione}</value>
+        </managed-property>
+    </managed-bean>
+  
+  <managed-bean>
+        <managed-bean-name>controlloPrenotazione</managed-bean-name>
+        <managed-bean-class>it.unibas.centrobenessere.controllo.ControlloPrenotazione</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>modello</property-name>
+            <value>#{modello}</value>
+        </managed-property>
+        <managed-property>
+            <property-name>vistaPrenotazione</property-name>
+            <value>#{vistaPrenotazione}</value>
+        </managed-property>
+    </managed-bean>
+  
+    
+  
+    <!--
+    <lifecycle>
+        <phase-listener>it.unibas.acijsfhibernate.controllo.PhaseListener</phase-listener>
+    </lifecycle>
+    -->
+    
+</faces-config>

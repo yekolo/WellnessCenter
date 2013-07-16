@@ -1,0 +1,6 @@
+
+            <Context docBase="C:\sviluppoTSW\CentroBenessere\centrobenessere\build\centrobenessere" 
+                        antiResourceLocking="false" antiJARLocking="false"
+                        reloadable="true">
+            </Context>            
+        

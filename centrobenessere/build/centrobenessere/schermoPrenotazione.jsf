@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+
+<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h"%>
+<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f"%>
+<%@ taglib uri="http://myfaces.apache.org/tomahawk" prefix="t" %>
+
+<!-- ************** intestazione *************** -->
+<c:import url="intestazione.jsf">
+    <c:param name="titolo" value="Schermo" />
+</c:import>
+<!-- ******************************************* -->
+
+<h2>Arrivederci al prossimo appuntamento </h2>
+
+<f:view>
+    <center>
+        <h:form>
+            <h:dataTable id="tabella" binding="#{vistaPrenotazione.tabellaPrenotazioni}"
+                         value="#{vistaPrenotazione.listaPrenotazioni}" var="prenotazione" border="2">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="data e ora" />
+                    </f:facet>
+                    <h:outputText value="#{prenotazione.dataPrenotazione}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="prenotazione" />
+                    </f:facet>
+                    <h:outputText value="#{prenotazione.prestazione.tipo}" />
+                </h:column>
+            </h:dataTable>
+            
+            <h:commandButton value="Fine" action="#{controlloPrenotazione.fine}"/>
+            
+        </h:form>
+            
+    </center>
+</f:view>
+
+
+<!-- ************** pie' di pagina *************** -->
+<c:import url="pieDiPagina.jsf" />
+<!-- ******************************************* -->

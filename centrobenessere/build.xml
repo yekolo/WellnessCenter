@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="build" name="centrobenessere">
+ 
+ <!-- ***************************************************
+            Importazione del template
+      *************************************************** -->
+
+    <import file="../web-jsfri-hibernate-template-build.xml" />
+
+
+</project>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+
+<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h"%>
+<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f"%>
+<%@ taglib uri="http://myfaces.apache.org/tomahawk" prefix="t" %>
+
+<!-- ************** intestazione *************** -->
+<c:import url="intestazione.jsf">
+    <c:param name="titolo" value="Schermo" />
+</c:import>
+<!-- ******************************************* -->
+<f:view>
+    <center>
+        <t:saveState value="#{vistaPrestazione}"/>
+        <h:form>
+
+            <h:dataTable id="tabella" binding="#{vistaPrestazione.tabellaPrestazioni}"
+                         value="#{vistaPrestazione.listaPrestazioni}" var="prestazione" border="2">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Tipo" />
+                    </f:facet>
+                    <h:outputText value="#{prestazione.tipo}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="costo per 1 ora" />
+                    </f:facet>
+                    <h:outputText value="#{prestazione.costo}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Seleziona" />
+                    </f:facet>
+                    <h:commandButton value="Seleziona" action="#{controlloPrestazione.selezionaPrestazione}" />
+                </h:column>
+            </h:dataTable>
+        </h:form>
+            <h:form rendered="#{vistaPrestazione.selezionato}">
+                
+                <h:panelGrid columns="3">                    
+                    <h:outputText value=" inserisci la data : "/>
+                    <t:inputDate id="prenotazione" popupCalendar="true" type="both" value="#{vistaPrestazione.dataEOra}"/>
+                    <h:message for="prenotazione"/>                    
+                </h:panelGrid>
+                <br/>
+                <br/>
+                <br/>
+                <h:commandButton value="aggiungi nuova prestazione" action="#{controlloPrestazione.aggiungiPrestazione}"/>
+                
+                <h:commandButton value="Regista la prenotazione" action="#{controlloPrestazione.prenotaPrestazioni}" />
+                    
+                
+                
+            </h:form>
+    </center>
+</f:view>
+
+
+<!-- ************** pie' di pagina *************** -->
+<c:import url="pieDiPagina.jsf" />
+<!-- ******************************************* -->

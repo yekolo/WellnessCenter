@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="framework-struts-template-build">
+     
+    <echo message="Versione di JSF: ${jsf.ver}" />
+    
+    <fileset id="jsf.jars" dir="${lib.dir}/jsf-${jsf.ver}">
+        <include name="jsf-api.jar" />
+        <include name="jsf-impl.jar" />
+    </fileset>
+ 
+    <echo message="Versione di Tomahawk: ${tomahawk.ver}" />
+    
+    <fileset id="tomahawk.jars" dir="${lib.dir}/tomahawk-${tomahawk.ver}">
+        <include name="tomahawk-*.jar" />
+        <include name="commons-el.jar" />
+        <include name="commons-fileupload-*.jar" />
+        <include name="commons-lang-*.jar" />
+    </fileset>
+
+</project>

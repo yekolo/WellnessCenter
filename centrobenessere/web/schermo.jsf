@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+
+<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h"%>
+<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f"%>
+<%@ taglib uri="http://myfaces.apache.org/tomahawk" prefix="t" %>
+
+<!-- ************** intestazione *************** -->
+<c:import url="intestazione.jsf">
+    <c:param name="titolo" value="Schermo" />
+</c:import>
+<!-- ******************************************* -->
+
+<h2>Pagina Iniziale</h2>
+
+<!-- ************** pie' di pagina *************** -->
+<c:import url="pieDiPagina.jsf" />
+<!-- ******************************************* -->

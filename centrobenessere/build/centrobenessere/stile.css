@@ -1,0 +1,19 @@
+/* 
+    Document   : stile
+    Created on : 30-mag-2013, 11.37.46
+    Author     : Utente
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+h2{
+    color: aqua;
+    background-color: tomato;
+    border-radius: 3px;
+    
+}
+

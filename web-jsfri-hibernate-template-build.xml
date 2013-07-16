@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="web-jsfri-template-build">
+     
+ <!-- ***************************************************
+                    Importazioni
+      *************************************************** -->
+    
+    <import file="./web-template-build.xml" />
+            
+    <import file="./framework-jsfri-template-build.xml" />
+
+    <import file="./framework-hibernate-template-build.xml" />
+
+ <!-- ***************************************************
+                    Target Ridefiniti
+      *************************************************** -->
+
+    <target name="-init-classpath" depends="-init-folders, -init-jars">
+        <property name="build.sysclasspath" value="ignore" />
+        <path id="jsf.classpath">
+            <fileset refid="jsf.jars"/>
+            <fileset refid="tomahawk.jars"/>
+        </path>
+        <path id="hibernate.classpath">
+            <fileset refid="hibernate.jars" />        
+            <fileset refid="hibernate-annotations.jars" />
+        </path>
+        <path id="driver.classpath">
+            <pathelement location="${lib.dir}/${driver.name}"/>
+        </path>
+        <path id="servlet.classpath">
+            <pathelement location="${servlet.api.jar}"/>
+        </path>
+        <path id="compile.classpath">
+            <path refid="jsf.classpath" />
+            <path refid="hibernate.classpath" />
+            <path refid="servlet.classpath" />
+            <path refid="driver.classpath" />
+            <fileset refid="commons-logging.jars" />
+            <pathelement location="${build.webapp.classes.dir}" />
+        </path>
+        <path id="test.classpath">
+            <path refid="compile.classpath" />
+            <pathelement location="${test.build.dir}" />
+            <fileset refid="test.jars" />
+        </path>
+        <path id="web.classpath">
+            <path refid="servlet.classpath" />
+            <fileset refid="jsf.jars" />
+            <fileset refid="tomahawk.jars" />
+            <fileset refid="web.jars" />
+        </path>
+    </target>    
+
+    <target name="-prepare-build" depends="init">
+        <copy todir="${build.webapp.dir}">
+            <fileset dir="${web.dir}" />
+        </copy>
+        <copy todir="${build.webapp.lib.dir}">
+            <fileset dir="${lib.dir}" includes="${driver.name}" />
+            <fileset refid="jsf.jars"/>
+            <fileset refid="tomahawk.jars"/>
+            <fileset refid="hibernate.jars" />
+            <fileset refid="hibernate-annotations.jars" />
+            <fileset refid="logging.jars" />
+            <fileset refid="web.jars" />
+        </copy>
+    </target>
+ 
+    <target name="-init-build-files" depends="init">
+        <fileset id="build.file.templates" dir="..">
+            <include name="web-jsfri-hibernate-template-build.xml" />
+            <include name="web-template-build.xml" />
+            <include name="tomcat-template-build.xml" />
+            <include name="framework-jsfri-template-build.xml" />
+            <include name="framework-hibernate-template-build.xml" />
+        </fileset>
+    </target>
+ 
+</project>
